@@ -52,32 +52,32 @@ $("input.form-control").on("focusout", (e) => {
   $(e.target).val(trimedValue);
 });
 
-let preventSubmit = (e: any) => {
+let preventSubmit: any = (e: any) => {
   e.preventDefault();
   e.stopPropagation();
 };
 
 // mark form fields as invalid
-let markInvalid = (field: any) => {
+let markInvalid: any = (field: any) => {
   field.addClass("is-invalid");
   field.removeClass("is-valid");
 };
 
 // mark form fields as valid
-let markValid = (field: any) => {
+let markValid: any = (field: any) => {
   field.addClass("is-valid");
   field.removeClass("is-invalid");
 };
 
 // clear input fields on data submit
-let clearInputFields = () => {
+let clearInputFields: any = () => {
   //   $("input").val("");
   $("input").removeClass("is-valid");
   $("#txt-id").focus();
 };
 
 // add customer data to table
-let addCustomer = (id: any, name: any, address: any) => {
+let addCustomer: any = (id: any, name: any, address: any) => {
   $("#tbl-customers>tbody").append(
     `<tr>
             <td>${id}</td>
@@ -88,26 +88,57 @@ let addCustomer = (id: any, name: any, address: any) => {
       </tr>
       `
   );
+
   hideTableFooter();
+  checkPaginationState();
+};
+
+// remove customer data from table
+let removeCustomer: any = () => {
+  showTableFooter();
+  checkPaginationState();
 };
 
 // hide table footer if there are data in the table
-let hideTableFooter = () => {
+let hideTableFooter: any = () => {
   if ($("#tbl-customers>tbody>tr").length > 0) {
     $("#tbl-customers>tfoot").hide();
   }
 };
 
 // show table footer if there are no data in the table
-let showTableFooter = () => {
+let showTableFooter: any = () => {
   if (($("#tbl-customers>tbody>tr").length = 0)) {
     $("#tbl-customers>tfoot").show();
   }
 };
 
 // hide pagination
+let hidePagination: any = () => {
+  $(".pagination").parent().hide();
+};
 
 // show pagination
+let showPagination: any = () => {
+  $(".pagination").parent().show();
+};
+
+// pagination visibility condition check
+let checkPaginationState: any = () => {
+  let tableBottomPoint = $("table").offset()!.top + $("table").outerHeight()!;
+  let footerTopPoint = $("footer").offset()!.top;
+  let paginationHeight = $(".pagination").parent().height()!;
+
+  if (footerTopPoint - tableBottomPoint <= paginationHeight + 100) {
+    showPagination();
+  } else {
+    hidePagination();
+  }
+};
+
+$(window).on("resize load", () => {
+  checkPaginationState();
+});
 
 // highlight active page on pagination
 

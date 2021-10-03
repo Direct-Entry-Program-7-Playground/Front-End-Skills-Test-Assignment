@@ -79,6 +79,12 @@ let addCustomer = (id, name, address) => {
       </tr>
       `);
     hideTableFooter();
+    checkPaginationState();
+};
+// remove customer data from table
+let removeCustomer = () => {
+    showTableFooter();
+    checkPaginationState();
 };
 // hide table footer if there are data in the table
 let hideTableFooter = () => {
@@ -93,7 +99,28 @@ let showTableFooter = () => {
     }
 };
 // hide pagination
+let hidePagination = () => {
+    $(".pagination").parent().hide();
+};
 // show pagination
+let showPagination = () => {
+    $(".pagination").parent().show();
+};
+// pagination visibility condition check
+let checkPaginationState = () => {
+    let tableBottomPoint = $("table").offset().top + $("table").outerHeight();
+    let footerTopPoint = $("footer").offset().top;
+    let paginationHeight = $(".pagination").parent().height();
+    if (footerTopPoint - tableBottomPoint <= paginationHeight + 100) {
+        showPagination();
+    }
+    else {
+        hidePagination();
+    }
+};
+$(window).on("resize load", () => {
+    checkPaginationState();
+});
 // highlight active page on pagination
 // enable/ disable forward and backward button of the pagination
 // add new page to pagination

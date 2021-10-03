@@ -37,7 +37,8 @@ $(window).on("load", () => {
             preventSubmit(e);
         }
         else {
-            preventSubmit(e);
+            addCustomer(customerIdInput, customerNameInput, customerAddressInput);
+            clearInputFields();
         }
     });
 });
@@ -60,4 +61,32 @@ let markInvalid = (field) => {
 let markValid = (field) => {
     field.addClass("is-valid");
     field.removeClass("is-invalid");
+};
+// clear input fields on data submit
+let clearInputFields = () => {
+    $("input").val("");
+    $("input").removeClass("is-valid");
+    $("#txt-id").focus();
+};
+// add customer data to table
+let addCustomer = (id, name, address) => {
+    $("#tbl-customers>tbody").append(`<tr>
+            <td>${id}</td>
+            <td>${name}</td>
+            <td>${address}</td>
+      </tr>
+      `);
+    hideTableFooter();
+};
+// hide table footer if there are data in the table
+let hideTableFooter = () => {
+    if ($("#tbl-customers>tbody>tr").length > 0) {
+        $("#tbl-customers>tfoot").hide();
+    }
+};
+// show table footer if there are no data in the table
+let showTableFooter = () => {
+    if (($("#tbl-customers>tbody>tr").length = 0)) {
+        $("#tbl-customers>tfoot").show();
+    }
 };

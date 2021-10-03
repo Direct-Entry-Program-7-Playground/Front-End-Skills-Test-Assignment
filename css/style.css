@@ -110,6 +110,9 @@ tr > td:last-child {
   text-align: center;
 }
 
+tbody > tr:hover {
+  cursor: pointer;
+}
 .del-btn,
 .del-btn:hover {
   width: 32px;

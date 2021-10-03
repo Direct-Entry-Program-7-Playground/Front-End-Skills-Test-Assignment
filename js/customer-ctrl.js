@@ -33,6 +33,7 @@ $(window).on("load", () => {
         }
         // prevent event propergation if any filed is invalid
         if ($(".form-control").filter(".is-invalid").length != 0) {
+            $("input.is-invalid").toArray()[0].focus();
             preventSubmit(e);
         }
         else {

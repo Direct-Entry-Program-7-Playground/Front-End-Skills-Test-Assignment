@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta content="width=device-width, scale=1.0" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>DOM Assignment 1</title>
     <link
       href="node_modules/bootstrap/dist/css/bootstrap.min.css"
@@ -25,7 +25,7 @@
     <main class="container">
       <div class="row">
         <div class="col-12 col-lg-4">
-          <form>
+          <form novalidate id="frm-customer" class="needs-validation">
             <h3><i class="fas fa-user-tag"></i> Manage Customers</h3>
             <div class="form-group">
               <label for="txt-id">Customer ID</label>
@@ -39,6 +39,10 @@
               <small class="form-text text-muted">
                 The Customer ID should follow the pattern CXXX; X={0-9}
               </small>
+              <div class="invalid-feedback">
+                Customer ID should follow the pattern CXXX, where the X is a
+                number between 0 and 9
+              </div>
             </div>
             <div class="form-group">
               <label for="txt-name">Customer Name</label>
@@ -48,6 +52,11 @@
                 placeholder="Eg. Lucky Prabath"
                 type="text"
               />
+              <div class="invalid-feedback">
+                Customer Name can't be empty and it can only contain capital or
+                simple alphabetical letters, spaces and periods. Minimum length
+                is 3 letters.
+              </div>
             </div>
             <div class="form-group">
               <label for="txt-address">Customer Address</label>
@@ -57,6 +66,9 @@
                 placeholder="Eg. #1234, Main St, Gampaha"
                 type="text"
               />
+              <div class="invalid-feedback">
+                Customer Address can't be empty and minimum length is 3 letters.
+              </div>
             </div>
             <hr />
             <div class="form-group">

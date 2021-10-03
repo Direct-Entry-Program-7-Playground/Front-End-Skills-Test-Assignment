@@ -64,7 +64,7 @@ let markValid = (field) => {
 };
 // clear input fields on data submit
 let clearInputFields = () => {
-    $("input").val("");
+    //   $("input").val("");
     $("input").removeClass("is-valid");
     $("#txt-id").focus();
 };
@@ -74,6 +74,8 @@ let addCustomer = (id, name, address) => {
             <td>${id}</td>
             <td>${name}</td>
             <td>${address}</td>
+            <td><img src="./img/trash.png" alt="trash" class="del-btn"/></td>
+            
       </tr>
       `);
     hideTableFooter();
@@ -90,3 +92,9 @@ let showTableFooter = () => {
         $("#tbl-customers>tfoot").show();
     }
 };
+// hide pagination
+// show pagination
+// highlight active page on pagination
+// enable/ disable forward and backward button of the pagination
+// add new page to pagination
+// remove page from pagination

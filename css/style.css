@@ -19,14 +19,14 @@
  * @since : 11/15/20
 **/
 
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
 /*===============================================================================
  * Global
  *===============================================================================*/
 
 * {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 html {
@@ -39,7 +39,7 @@ html {
 
 header {
   padding-top: 20px;
-  border-bottom: bottom: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 
 /*===============================================================================
@@ -50,40 +50,40 @@ main {
   margin-top: 50px;
 }
 
-  main .row > div:first-child {
-    border-right: 1px solid lightgray;
-  }
+main .row > div:first-child {
+  border-right: 1px solid lightgray;
+}
 
-  main h3 {
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: rgb(251, 181, 52);
-  }
+main h3 {
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: rgb(251, 181, 52);
+}
 
- main #tbl-customers thead tr {
-      background-color: lightgrey;
+main #tbl-customers thead tr {
+  background-color: lightgrey;
 }
 
 main #tbl-customers th {
-        border-bottom-color: #989898;
-    }
+  border-bottom-color: #989898;
+}
 
 main #tbl-customers td {
-      vertical-align: middle;
- }
+  vertical-align: middle;
+}
 
- main #tbl-customers th:first-child {
-      width: 75px;
-      text-align: center;
- }
+main #tbl-customers th:first-child {
+  width: 75px;
+  text-align: center;
+}
 
- main #tbl-customers th:last-child {
-      position: relative;
-      width: 75px;
-      text-align: center;
-  }
+main #tbl-customers th:last-child {
+  position: relative;
+  width: 75px;
+  text-align: center;
+}
 
 /*===============================================================================
  * Footer
@@ -97,4 +97,28 @@ footer {
   right: 0;
   padding: 10px;
   border-top: 1px solid lightgrey;
+}
+
+/*===============================================================================
+ * Table
+ *===============================================================================*/
+tr > td:first-child {
+  text-align: center;
+}
+
+tr > td:last-child {
+  text-align: center;
+}
+
+.del-btn,
+.del-btn:hover {
+  width: 32px;
+  height: 32px;
+}
+
+.del-btn {
+  content: url(../img/trash.png);
+}
+.del-btn:hover {
+  content: url(../img/trash-hover.png);
 }

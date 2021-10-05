@@ -10,7 +10,7 @@
     "watch": "tsc --watch",
     "dev": "parcel --out-dir ./docs serve index.html",
     "clean": "rm -rf ./docs ./dist",
-    "build": "rm -rf ./docs ./dist && parcel build --out-dir ./docs index.html"
+    "build": "rm -rf ./docs ./dist && parcel build index.html --out-dir ./docs --public-url ./"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.6",

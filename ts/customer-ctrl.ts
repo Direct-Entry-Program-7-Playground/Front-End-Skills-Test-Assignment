@@ -12,9 +12,15 @@ $(window).on("load", () => {
 
   let form = $("#frm-customer");
   form.on("submit", (e: any) => {
+    preventSubmit(e);
+
     let customerIdInput: any = $("#txt-id").val();
     let customerNameInput: any = $("#txt-name").val();
     let customerAddressInput: any = $("#txt-address").val();
+
+    markValid($("#txt-id"));
+    markValid($("#txt-name"));
+    markValid($("#txt-address"));
 
     // check input for validation
     if (regexpCustomerId.test(customerIdInput) == false) {
@@ -38,7 +44,6 @@ $(window).on("load", () => {
     // prevent event propergation if any filed is invalid
     if ($(".form-control").filter(".is-invalid").length != 0) {
       $("input.is-invalid").toArray()[0].focus();
-      preventSubmit(e);
     } else {
       addCustomer(customerIdInput, customerNameInput, customerAddressInput);
       clearInputFields();

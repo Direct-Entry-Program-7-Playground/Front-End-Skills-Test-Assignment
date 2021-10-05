@@ -120,8 +120,11 @@ tbody > tr:hover {
 }
 
 .del-btn {
-  content: url(../img/trash.png);
+  content: url(/trash.be1686b2.png);
 }
 .del-btn:hover {
-  content: url(../img/trash-hover.png);
+  content: url(/trash-hover.7f0a5c88.png);
 }
+
+
+/*# sourceMappingURL=/style.78032849.css.map */
